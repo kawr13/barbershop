@@ -161,3 +161,14 @@ class AppointmentView(View):
             return HttpResponse(html_content)
         else:
             return HttpResponseBadRequest("Appointment already exists for the selected datetime.")
+
+
+class MasterViews(View):
+
+    def get(self, request):
+        masters = Master.objects.all()
+        content = {
+            'title': 'Masters',
+            'masters': masters
+        }
+        return render(request, 'barberapp/masters.html', context=content)

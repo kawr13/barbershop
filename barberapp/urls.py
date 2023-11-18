@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from barberapp.views import BarberappView, ArticleDetailedView, ServicesView, CategoryID, LikeAddView, Services, \
-    AppointmentView
+    AppointmentView, MasterViews
 
 app_name = 'barberapp'
 
@@ -30,4 +30,5 @@ urlpatterns = [
     path('like/<int:master_id>/', LikeAddView.as_view(), name='like'),
     path('services/<int:master_id>/', Services.as_view(), name='services'),
     path('recording/<int:master_id>/', AppointmentView.as_view(), name='recording'),
+    path('masters/', MasterViews.as_view(), name='masters'),
 ]
