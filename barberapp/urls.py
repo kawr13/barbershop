@@ -17,10 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from barberapp.views import BarberappView
+from barberapp.views import BarberappView, ArticleDetailedView, ServicesView, CategoryID, LikeAddView, Services, \
+    AppointmentView
 
 app_name = 'barberapp'
 
 urlpatterns = [
     path('', BarberappView.as_view(), name='index'),
+    path('post/<int:article_id>/', ArticleDetailedView.as_view(), name='post'),
+    path('category/', ServicesView.as_view(), name='categoryes'),
+    path('category/<int:category_id>/', CategoryID.as_view(), name='category'),
+    path('like/<int:master_id>/', LikeAddView.as_view(), name='like'),
+    path('services/<int:master_id>/', Services.as_view(), name='services'),
+    path('recording/<int:master_id>/', AppointmentView.as_view(), name='recording'),
 ]
